@@ -15,6 +15,14 @@ app.use((_request, response, next) => {
   next();
 });
 
+app.get('/', (_request, response) => {
+  response.json({
+    name: 'OctoFit API',
+    status: 'ok',
+    endpoints: ['/api/users', '/api/activities'],
+  });
+});
+
 app.get('/api/health', (_request, response) => {
   response.json({ status: 'ok', database: 'available' });
 });
